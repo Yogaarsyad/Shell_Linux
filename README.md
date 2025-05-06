@@ -1,9 +1,8 @@
 # Emir Shell - Custom Linux Shell 🔧
 *A simple yet powerful shell implementation for Linux systems*
 
-![Shell Demo](https://i.ibb.co/6RFr1gB/shell-demo.png)
+![Shell Demo](https://img.shields.io/badge/Status-Functional-brightgreen) 
 ![License](https://img.shields.io/badge/License-GPL--3.0-orange)
-
 ## 📖 Overview
 Shell kustom yang dikembangkan untuk memulihkan shell yang hilang di lab jaringan. Dibangun menggunakan C dengan library `readline`, mendukung berbagai command dasar dan fitur khusus dengan arsitektur modular.
 
