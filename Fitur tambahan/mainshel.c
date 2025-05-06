@@ -1,3 +1,4 @@
+// Tri Yoga Arsyad - 2306161920
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -13,7 +14,7 @@ void landingPage();
 // Fungsi utama yang menjalankan shell
 int main() {
     landingPage();
-    while (1) {  // Loop infinite untuk menerima input terus menerus
+    while (1) {
         char *input = takeInput();
         parseInput(input);
         free(input);
@@ -43,7 +44,7 @@ char *takeInput() {
     return input;
 }
 
-// Fungsi untuk memproses input pengguna.
+
 void parseInput(char *input) {
     if (strcmp(input, "exit") == 0) exit(0);
     if (!input || strlen(input) == 0) return;
@@ -52,14 +53,22 @@ void parseInput(char *input) {
     char *token = strtok(input, " ");
     if (!token) return;
 
-   
-    pid_t pid = fork();  // Membuat proses child
-    if (pid == 0) {      // Proses child.
+    pid_t pid = fork();
+    if (pid == 0) {
         char *args[256] = {NULL};
         int i = 0;
 
+        // Handle semua command dengan execvp
         if (strcmp(token, "help") == 0) {
-            execl("./printHelp", "printHelp", NULL);
+            args[i++] = "./printHelp";
+        } else if (strcmp(token, "listfile") == 0) {
+            args[i++] = "./listfile";
+        } else if (strcmp(token, "buatdir") == 0) {
+            args[i++] = "./buatdir";
+        } else if (strcmp(token, "waktushow") == 0) {
+            args[i++] = "./waktushow";
+        } else if (strcmp(token, "infosistem") == 0) {
+            args[i++] = "./infosistem";
         } else if (strcmp(token, "print") == 0) {
             args[i++] = "./print";
         } else if (strcmp(token, "buatdong") == 0) {
@@ -75,14 +84,14 @@ void parseInput(char *input) {
         } else {
             printf("Command not found: %s\n", token);
             exit(1);
-            
         }
 
+        // Ambil argumen tambahan
         while ((args[i++] = strtok(NULL, " ")));
-        execvp(args[0], args);  // Ganti image proses dengan program eksternal.
+        execvp(args[0], args);
         perror("exec failed");
         exit(1);
-    } else {            // Proses parent.
-        wait(NULL);     // Tunggu child selesai.
+    } else {
+        wait(NULL);
     }
 }

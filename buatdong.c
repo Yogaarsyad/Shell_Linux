@@ -1,3 +1,4 @@
+// Tri Yoga Arsyad - 2306161920
 #include <stdio.h>
 #include <stdlib.h>
 
