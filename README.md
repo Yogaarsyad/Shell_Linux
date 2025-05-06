@@ -1,7 +1,7 @@
 # Emir Shell - Custom Linux Shell 🔧
 *A simple yet powerful shell implementation for Linux systems*
 
-![Shell Demo](https://ibb.co.com/6RFr1gBF) 
+![Shell Demo](https://i.ibb.co/6RFr1gB/shell-demo.png)
 ![License](https://img.shields.io/badge/License-GPL--3.0-orange)
 
 ## 📖 Overview
